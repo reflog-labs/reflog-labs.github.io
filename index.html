@@ -1122,6 +1122,194 @@
                 color: #a3e635;
             }
 
+            /* Live Card Elements & What You'll Learn Drawer */
+            .lab-card.live {
+                border-style: solid;
+            }
+            .lab-title {
+                font-family: var(--font-display);
+                font-size: 1.15rem;
+                font-weight: 600;
+                color: var(--ink);
+                margin-bottom: 0.5rem;
+                line-height: 1.25;
+            }
+            .lab-desc {
+                font-size: 0.85rem;
+                color: var(--ink-dim);
+                line-height: 1.5;
+                margin-bottom: 0.75rem;
+                flex: 1;
+            }
+            .lab-meta-row {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-family: var(--font-mono);
+                font-size: 0.75rem;
+                color: var(--ink-dim);
+                margin-bottom: 0.65rem;
+                flex-wrap: wrap;
+            }
+            .lab-meta-item {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.3rem;
+            }
+            .lab-lang-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--accent);
+                display: inline-block;
+            }
+            :root[data-theme='dark'] .lab-lang-dot {
+                background: #a3e635;
+            }
+            .lab-topics {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.35rem;
+                margin-bottom: 1rem;
+            }
+            .lab-topic-tag {
+                font-family: var(--font-mono);
+                font-size: 0.7rem;
+                padding: 0.15rem 0.45rem;
+                background: var(--surface-2);
+                border: 1px solid var(--line);
+                color: var(--ink-dim);
+                border-radius: 2px;
+            }
+            :root[data-theme='dark'] .lab-topic-tag {
+                background: #172230;
+                border-color: #2d3d4f;
+            }
+            .lab-actions-row {
+                margin-top: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .lab-card a.lab-tile {
+                text-decoration: none;
+                color: inherit;
+            }
+            .btn-learn-drawer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                padding: 0.45rem 0.8rem;
+                background: transparent;
+                border: 1px dashed var(--line);
+                font-family: var(--font-mono);
+                font-size: 0.75rem;
+                color: var(--ink-dim);
+                cursor: pointer;
+                transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+            }
+            .btn-learn-drawer:hover,
+            .btn-learn-drawer:focus-visible {
+                border-color: var(--accent);
+                color: var(--ink);
+                background: var(--surface-2);
+            }
+            :root[data-theme='dark'] .btn-learn-drawer:hover,
+            :root[data-theme='dark'] .btn-learn-drawer:focus-visible {
+                border-color: #a3e635;
+                color: #f1f5f9;
+                background: rgba(163, 230, 53, 0.08);
+            }
+            .learn-icon {
+                font-weight: 700;
+                font-size: 0.85rem;
+            }
+            .lab-drawer {
+                margin-top: 0.25rem;
+                padding: 0.75rem;
+                background: var(--surface-2);
+                border: 1px solid var(--line);
+                font-family: var(--font-mono);
+                font-size: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.35rem;
+            }
+            :root[data-theme='dark'] .lab-drawer {
+                background: #0d1520;
+                border-color: #2d3d4f;
+            }
+            .lab-drawer[hidden] {
+                display: none;
+            }
+            .lab-drawer-header {
+                font-size: 0.7rem;
+                color: var(--ink-dim);
+                margin-bottom: 0.25rem;
+                letter-spacing: 0.05em;
+            }
+            .diff-lines {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            .diff-line {
+                display: flex;
+                gap: 0.4rem;
+                padding: 0.2rem 0.4rem;
+                border-radius: 2px;
+                line-height: 1.4;
+                word-break: break-word;
+            }
+            .diff-line.diff-add {
+                background: rgba(22, 163, 74, 0.12);
+                color: #15803d;
+            }
+            :root[data-theme='dark'] .diff-line.diff-add {
+                background: rgba(163, 230, 53, 0.14);
+                color: #a3e635;
+            }
+            .diff-line.diff-sub {
+                background: rgba(220, 38, 38, 0.1);
+                color: #b91c1c;
+            }
+            :root[data-theme='dark'] .diff-line.diff-sub {
+                background: rgba(239, 68, 68, 0.14);
+                color: #f87171;
+            }
+            .diff-marker {
+                font-weight: 700;
+                flex-shrink: 0;
+            }
+            .lab-badge.unavailable {
+                background: var(--surface-2);
+                color: var(--ink-dim);
+                border-style: dashed;
+            }
+            .lab-card.shake {
+                animation: lab-card-shake 320ms ease;
+            }
+            @keyframes lab-card-shake {
+                0%, 100% { transform: translateX(0); }
+                20%, 60% { transform: translateX(-4px); }
+                40%, 80% { transform: translateX(4px); }
+            }
+            @keyframes lab-unlock-pop {
+                0% { transform: scale(0.97); }
+                50% { transform: scale(1.02); }
+                100% { transform: scale(1); }
+            }
+            .lab-card.unlocked-anim {
+                animation: lab-unlock-pop 360ms cubic-bezier(0.16, 1, 0.3, 1) 1;
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .lab-card.shake,
+                .lab-card.unlocked-anim {
+                    animation: none !important;
+                }
+            }
+
             /* Undo Section (Guided 3-Step Flow with Magnetic Spring & Equal Alignment) */
             .undo-section {
                 border-bottom: var(--bw) solid var(--line);
@@ -4752,9 +4940,734 @@
         `;
                 });
 
+                // ==========================================
+                // 02 LIVE LABS ENGINE
+                // ==========================================
+                var LABS = [
+                    { nn: "01", track: "Foundations", level: "Basic", diff: [
+                        { type: "add", text: 'git init, git add -p, git commit -m "clear message"' },
+                        { type: "add", text: 'read history with git log --oneline' },
+                        { type: "sub", text: 'committing node_modules and secrets (use .gitignore)' },
+                        { type: "sub", text: 'messages like "stuff" and "final_v2"' }
+                    ]},
+                    { nn: "02", track: "Foundations", level: "Basic", diff: [
+                        { type: "add", text: 'git switch -c feature/x' },
+                        { type: "add", text: 'fast-forward vs merge commit' },
+                        { type: "sub", text: 'working directly on main' },
+                        { type: "sub", text: 'branch names like "test2"' }
+                    ]},
+                    { nn: "03", track: "Foundations", level: "Basic", diff: [
+                        { type: "add", text: 'git clone, git remote -v, git push -u origin branch' },
+                        { type: "add", text: 'SSH key or token auth' },
+                        { type: "sub", text: 'pasting a token into the remote URL' }
+                    ]},
+                    { nn: "04", track: "Collaboration", level: "Basic", diff: [
+                        { type: "add", text: 'fork, clone, git remote add upstream' },
+                        { type: "add", text: 'sync your fork with upstream' },
+                        { type: "sub", text: 'opening PRs from a stale main' }
+                    ]},
+                    { nn: "05", track: "Collaboration", level: "Basic", diff: [
+                        { type: "add", text: 'reproduce first: steps, expected vs actual' },
+                        { type: "add", text: 'labels, issue templates, read CONTRIBUTING.md' },
+                        { type: "sub", text: '"it doesn\'t work"' },
+                        { type: "sub", text: 'filing duplicates without searching' }
+                    ]},
+                    { nn: "06", track: "Collaboration", level: "Intermediate", diff: [
+                        { type: "add", text: 'branch -> push -> open PR, link with Fixes #12' },
+                        { type: "add", text: 'describe what, why, how you tested' },
+                        { type: "sub", text: 'giant PRs mixing unrelated changes' },
+                        { type: "sub", text: 'empty PR descriptions' }
+                    ]},
+                    { nn: "07", track: "Craft", level: "Intermediate", diff: [
+                        { type: "add", text: 'read conflict markers' },
+                        { type: "add", text: 'resolve, git add, continue the merge' },
+                        { type: "sub", text: 'deleting both sides to make markers vanish' },
+                        { type: "sub", text: 'committing conflict markers' }
+                    ]},
+                    { nn: "08", track: "Craft", level: "Intermediate", diff: [
+                        { type: "add", text: 'respond to review comments, push fixup commits' },
+                        { type: "add", text: 'git commit --amend, squash merge' },
+                        { type: "sub", text: 'resolving threads you didn\'t address' }
+                    ]},
+                    { nn: "09", track: "Craft", level: "Intermediate", diff: [
+                        { type: "add", text: 'git rebase -i, git cherry-pick' },
+                        { type: "add", text: 'recover a "lost" commit with git reflog' },
+                        { type: "sub", text: 'git push --force' },
+                        { type: "add", text: 'git push --force-with-lease' }
+                    ]},
+                    { nn: "10", track: "Quality & Ship", level: "Basic", diff: [
+                        { type: "add", text: 'write the failing test first, then the fix' },
+                        { type: "add", text: 'profile, benchmark before/after, report numbers in the PR' },
+                        { type: "sub", text: '"optimizing" without measuring' },
+                        { type: "sub", text: 'fixes with no regression test' }
+                    ]},
+                    { nn: "11", track: "Quality & Ship", level: "Intermediate", diff: [
+                        { type: "add", text: 'GitHub Actions: lint + test on every PR' },
+                        { type: "add", text: 'read logs, turn a red build green, cache dependencies' },
+                        { type: "sub", text: 'merging with failing checks' },
+                        { type: "sub", text: 'secrets in workflow files' }
+                    ]},
+                    { nn: "12", track: "Quality & Ship", level: "Intermediate", diff: [
+                        { type: "add", text: 'tags, semantic versioning, changelog, GitHub Release' },
+                        { type: "add", text: 'release notes people can read' },
+                        { type: "sub", text: 'versions like "final-final"' },
+                        { type: "sub", text: 'releasing from an unreviewed branch' }
+                    ]}
+                ];
+
+                var LABS_CACHE_KEY = 'reflog:labs:v1';
+                var LABS_API_URL = 'https://api.github.com/orgs/reflog-labs/repos?type=public&per_page=100&sort=created&direction=asc';
+
+                function slugToTitleCase(slug) {
+                    if (!slug) return '';
+                    return slug
+                        .split('-')
+                        .filter(Boolean)
+                        .map(function (w) {
+                            return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+                        })
+                        .join(' ');
+                }
+
+                function formatRelativeTime(dateStr) {
+                    if (!dateStr) return '';
+                    var date = new Date(dateStr);
+                    var now = new Date();
+                    var diffMs = now - date;
+                    if (diffMs < 0) diffMs = 0;
+                    var sec = Math.floor(diffMs / 1000);
+                    var min = Math.floor(sec / 60);
+                    var hr = Math.floor(min / 60);
+                    var day = Math.floor(hr / 24);
+                    var month = Math.floor(day / 30);
+                    var year = Math.floor(day / 365);
+
+                    if (min < 1) return 'updated just now';
+                    if (min < 60) return 'updated ' + min + 'm ago';
+                    if (hr < 24) return 'updated ' + hr + 'h ago';
+                    if (day < 30) return 'updated ' + day + 'd ago';
+                    if (month < 12) return 'updated ' + month + 'mo ago';
+                    return 'updated ' + year + 'y ago';
+                }
+
+                function formatTimeHHMM(d) {
+                    var date = d || new Date();
+                    var hours = String(date.getHours()).padStart(2, '0');
+                    var minutes = String(date.getMinutes()).padStart(2, '0');
+                    return hours + ':' + minutes;
+                }
+
+                function triggerUnlockAnimation(cardEl, nn) {
+                    var hasReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    if (hasReducedMotion) return;
+
+                    var animKey = 'reflog:anim:' + nn;
+                    try {
+                        if (sessionStorage.getItem(animKey)) return;
+                        sessionStorage.setItem(animKey, '1');
+                    } catch (e) {}
+
+                    cardEl.classList.add('unlocked-anim');
+                    setTimeout(function () {
+                        cardEl.classList.remove('unlocked-anim');
+                    }, 450);
+                }
+
+                function renderLiveCard(cardEl, labConfig, repoData) {
+                    cardEl.className = 'lab-card live';
+                    if (labConfig && labConfig.track) {
+                        cardEl.setAttribute('data-track', labConfig.track);
+                    }
+                    while (cardEl.firstChild) cardEl.removeChild(cardEl.firstChild);
+
+                    // Top Row
+                    var labTop = document.createElement('div');
+                    labTop.className = 'lab-top';
+                    var numSpan = document.createElement('span');
+                    numSpan.className = 'lab-num';
+                    numSpan.textContent = repoData.nn;
+                    var badgeSpan = document.createElement('span');
+                    badgeSpan.className = 'lab-badge available';
+                    badgeSpan.textContent = 'LIVE';
+                    labTop.appendChild(numSpan);
+                    labTop.appendChild(badgeSpan);
+                    cardEl.appendChild(labTop);
+
+                    // Track Row
+                    var labTrk = document.createElement('div');
+                    labTrk.className = 'lab-trk';
+                    labTrk.textContent = labConfig ? (labConfig.track + ' : ' + labConfig.level) : 'More : Live';
+                    cardEl.appendChild(labTrk);
+
+                    // Title
+                    var labTitle = document.createElement('h3');
+                    labTitle.className = 'lab-title';
+                    labTitle.textContent = repoData.title;
+                    cardEl.appendChild(labTitle);
+
+                    // Description (textContent only)
+                    var labDesc = document.createElement('p');
+                    labDesc.className = 'lab-desc';
+                    labDesc.textContent = repoData.description || 'No description yet.';
+                    cardEl.appendChild(labDesc);
+
+                    // Meta Row
+                    var metaRow = document.createElement('div');
+                    metaRow.className = 'lab-meta-row';
+                    if (repoData.language) {
+                        var langSpan = document.createElement('span');
+                        langSpan.className = 'lab-meta-item lab-meta-lang';
+                        var langDot = document.createElement('span');
+                        langDot.className = 'lab-lang-dot';
+                        var langText = document.createElement('span');
+                        langText.textContent = repoData.language;
+                        langSpan.appendChild(langDot);
+                        langSpan.appendChild(langText);
+                        metaRow.appendChild(langSpan);
+                    }
+                    if (repoData.pushed_at) {
+                        var timeSpan = document.createElement('span');
+                        timeSpan.className = 'lab-meta-item lab-meta-time';
+                        timeSpan.textContent = formatRelativeTime(repoData.pushed_at);
+                        metaRow.appendChild(timeSpan);
+                    }
+                    if (repoData.stargazers_count > 0) {
+                        var starSpan = document.createElement('span');
+                        starSpan.className = 'lab-meta-item lab-meta-stars';
+                        starSpan.textContent = '★ ' + repoData.stargazers_count;
+                        metaRow.appendChild(starSpan);
+                    }
+                    cardEl.appendChild(metaRow);
+
+                    // Topics Row (up to 3 topics)
+                    if (repoData.topics && repoData.topics.length > 0) {
+                        var topicsDiv = document.createElement('div');
+                        topicsDiv.className = 'lab-topics';
+                        repoData.topics.slice(0, 3).forEach(function (topic) {
+                            var tag = document.createElement('span');
+                            tag.className = 'lab-topic-tag';
+                            tag.textContent = topic;
+                            topicsDiv.appendChild(tag);
+                        });
+                        cardEl.appendChild(topicsDiv);
+                    }
+
+                    // Actions Area (Tile link + What You'll Learn Drawer)
+                    var actionsDiv = document.createElement('div');
+                    actionsDiv.className = 'lab-actions-row';
+
+                    var tileLink = document.createElement('a');
+                    tileLink.className = 'lab-tile';
+                    tileLink.href = repoData.html_url;
+                    tileLink.target = '_blank';
+                    tileLink.rel = 'noopener';
+                    tileLink.setAttribute('aria-label', 'Open ' + repoData.title + ' repository on GitHub');
+
+                    var defSpan = document.createElement('span');
+                    defSpan.className = 'lab-tile-default';
+                    defSpan.textContent = '// open repo';
+
+                    var hovSpan = document.createElement('span');
+                    hovSpan.className = 'lab-tile-hover';
+                    hovSpan.textContent = 'Open on GitHub ↗';
+
+                    var arrowSpan = document.createElement('span');
+                    arrowSpan.className = 'lab-arrow';
+                    arrowSpan.setAttribute('aria-hidden', 'true');
+                    arrowSpan.textContent = '→';
+
+                    tileLink.appendChild(defSpan);
+                    tileLink.appendChild(hovSpan);
+                    tileLink.appendChild(arrowSpan);
+                    actionsDiv.appendChild(tileLink);
+
+                    var drawerBtn = document.createElement('button');
+                    drawerBtn.type = 'button';
+                    drawerBtn.className = 'btn-learn-drawer';
+                    drawerBtn.setAttribute('aria-expanded', 'false');
+
+                    var btnLabel = document.createElement('span');
+                    btnLabel.textContent = "What you'll learn";
+
+                    var btnIcon = document.createElement('span');
+                    btnIcon.className = 'learn-icon';
+                    btnIcon.textContent = '+';
+
+                    drawerBtn.appendChild(btnLabel);
+                    drawerBtn.appendChild(btnIcon);
+                    actionsDiv.appendChild(drawerBtn);
+
+                    var drawer = document.createElement('div');
+                    drawer.className = 'lab-drawer';
+                    drawer.hidden = true;
+
+                    if (labConfig && labConfig.diff && labConfig.diff.length > 0) {
+                        var diffHeader = document.createElement('div');
+                        diffHeader.className = 'lab-drawer-header';
+                        diffHeader.textContent = '// what you\'ll learn & drop';
+                        drawer.appendChild(diffHeader);
+
+                        var diffLines = document.createElement('div');
+                        diffLines.className = 'diff-lines';
+                        labConfig.diff.forEach(function (d) {
+                            var line = document.createElement('div');
+                            line.className = 'diff-line ' + (d.type === 'add' ? 'diff-add' : 'diff-sub');
+                            var marker = document.createElement('span');
+                            marker.className = 'diff-marker';
+                            marker.textContent = d.type === 'add' ? '+' : '-';
+                            var txt = document.createElement('span');
+                            txt.className = 'diff-text';
+                            txt.textContent = d.text;
+                            line.appendChild(marker);
+                            line.appendChild(txt);
+                            diffLines.appendChild(line);
+                        });
+                        drawer.appendChild(diffLines);
+                    } else {
+                        var extraHeader = document.createElement('div');
+                        extraHeader.className = 'lab-drawer-header';
+                        extraHeader.textContent = '// details';
+                        drawer.appendChild(extraHeader);
+
+                        var extraDesc = document.createElement('p');
+                        extraDesc.className = 'diff-text';
+                        extraDesc.textContent = repoData.description || 'No description yet.';
+                        drawer.appendChild(extraDesc);
+                    }
+
+                    drawerBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        var isOpen = !drawer.hidden;
+                        drawer.hidden = isOpen;
+                        drawerBtn.setAttribute('aria-expanded', (!isOpen).toString());
+                        btnIcon.textContent = isOpen ? '+' : '−';
+                    });
+
+                    actionsDiv.appendChild(drawer);
+                    cardEl.appendChild(actionsDiv);
+                }
+
+                function renderLockedCard(cardEl, labConfig) {
+                    cardEl.className = 'lab-card locked';
+                    cardEl.setAttribute('data-track', labConfig.track);
+                    while (cardEl.firstChild) cardEl.removeChild(cardEl.firstChild);
+
+                    var labTop = document.createElement('div');
+                    labTop.className = 'lab-top';
+                    var numSpan = document.createElement('span');
+                    numSpan.className = 'lab-num';
+                    numSpan.textContent = labConfig.nn;
+                    var badgeSpan = document.createElement('span');
+                    badgeSpan.className = 'lab-badge locked';
+                    badgeSpan.textContent = 'LOCKED';
+                    labTop.appendChild(numSpan);
+                    labTop.appendChild(badgeSpan);
+                    cardEl.appendChild(labTop);
+
+                    var labTrk = document.createElement('div');
+                    labTrk.className = 'lab-trk';
+                    labTrk.textContent = labConfig.track + ' : ' + labConfig.level;
+                    cardEl.appendChild(labTrk);
+
+                    var labBody = document.createElement('div');
+                    labBody.className = 'lab-body';
+                    var bar1 = document.createElement('div');
+                    bar1.className = 'lab-bar';
+                    bar1.style.width = '75%';
+                    var bar2 = document.createElement('div');
+                    bar2.className = 'lab-bar';
+                    bar2.style.width = '88%';
+                    var bar3 = document.createElement('div');
+                    bar3.className = 'lab-bar';
+                    bar3.style.width = '71%';
+                    labBody.appendChild(bar1);
+                    labBody.appendChild(bar2);
+                    labBody.appendChild(bar3);
+                    cardEl.appendChild(labBody);
+
+                    var labTile = document.createElement('div');
+                    labTile.className = 'lab-tile';
+                    var defSpan = document.createElement('span');
+                    defSpan.className = 'lab-tile-default';
+                    defSpan.textContent = '// queued for launch';
+                    var hovSpan = document.createElement('span');
+                    hovSpan.className = 'lab-tile-hover';
+                    hovSpan.textContent = 'Reserved: opens on public release';
+                    var arrowSpan = document.createElement('span');
+                    arrowSpan.className = 'lab-arrow';
+                    arrowSpan.setAttribute('aria-hidden', 'true');
+                    arrowSpan.textContent = '→';
+                    labTile.appendChild(defSpan);
+                    labTile.appendChild(hovSpan);
+                    labTile.appendChild(arrowSpan);
+                    cardEl.appendChild(labTile);
+
+                    cardEl.onclick = function () {
+                        if (cardEl.classList.contains('locked')) {
+                            cardEl.classList.remove('shake');
+                            void cardEl.offsetWidth;
+                            cardEl.classList.add('shake');
+                        }
+                    };
+                    cardEl.onkeydown = function (e) {
+                        if ((e.key === 'Enter' || e.key === ' ') && cardEl.classList.contains('locked')) {
+                            e.preventDefault();
+                            cardEl.classList.remove('shake');
+                            void cardEl.offsetWidth;
+                            cardEl.classList.add('shake');
+                        }
+                    };
+                }
+
+                function renderUnavailableCard(cardEl, labConfig) {
+                    cardEl.className = 'lab-card unavailable';
+                    cardEl.setAttribute('data-track', labConfig.track);
+                    while (cardEl.firstChild) cardEl.removeChild(cardEl.firstChild);
+
+                    var labTop = document.createElement('div');
+                    labTop.className = 'lab-top';
+                    var numSpan = document.createElement('span');
+                    numSpan.className = 'lab-num';
+                    numSpan.textContent = labConfig.nn;
+                    var badgeSpan = document.createElement('span');
+                    badgeSpan.className = 'lab-badge unavailable';
+                    badgeSpan.textContent = "COULDN'T CHECK";
+                    labTop.appendChild(numSpan);
+                    labTop.appendChild(badgeSpan);
+                    cardEl.appendChild(labTop);
+
+                    var labTrk = document.createElement('div');
+                    labTrk.className = 'lab-trk';
+                    labTrk.textContent = labConfig.track + ' : ' + labConfig.level;
+                    cardEl.appendChild(labTrk);
+
+                    var labBody = document.createElement('div');
+                    labBody.className = 'lab-body';
+                    var bar1 = document.createElement('div');
+                    bar1.className = 'lab-bar';
+                    bar1.style.width = '70%';
+                    var bar2 = document.createElement('div');
+                    bar2.className = 'lab-bar';
+                    bar2.style.width = '80%';
+                    var bar3 = document.createElement('div');
+                    bar3.className = 'lab-bar';
+                    bar3.style.width = '65%';
+                    labBody.appendChild(bar1);
+                    labBody.appendChild(bar2);
+                    labBody.appendChild(bar3);
+                    cardEl.appendChild(labBody);
+
+                    var labTile = document.createElement('div');
+                    labTile.className = 'lab-tile';
+                    var defSpan = document.createElement('span');
+                    defSpan.className = 'lab-tile-default';
+                    defSpan.textContent = '// couldn\'t check';
+                    var hovSpan = document.createElement('span');
+                    hovSpan.className = 'lab-tile-hover';
+                    hovSpan.textContent = 'Network or API rate limit';
+                    var arrowSpan = document.createElement('span');
+                    arrowSpan.className = 'lab-arrow';
+                    arrowSpan.setAttribute('aria-hidden', 'true');
+                    arrowSpan.textContent = '→';
+                    labTile.appendChild(defSpan);
+                    labTile.appendChild(hovSpan);
+                    labTile.appendChild(arrowSpan);
+                    cardEl.appendChild(labTile);
+                }
+
+                function renderAllFromState(state) {
+                    // 1. Labs Status Pill
+                    var statusPill = document.getElementById('labs-status-pill');
+                    if (statusPill) {
+                        if (state.status === 'unavailable') {
+                            statusPill.textContent = "Couldn't reach GitHub";
+                        } else {
+                            var timeStr = state.syncedAt || formatTimeHHMM(new Date());
+                            statusPill.textContent = state.liveCount + ' / 12 unlocked · synced ' + timeStr;
+                        }
+                    }
+
+                    // 2. Hero Primary Button
+                    var heroBtn = document.getElementById('hero-start-btn');
+                    if (heroBtn) {
+                        if (state.liveCount === 0 || state.status === 'unavailable') {
+                            heroBtn.textContent = 'Labs unlock soon';
+                            heroBtn.href = '#labs';
+                            heroBtn.removeAttribute('target');
+                            heroBtn.removeAttribute('rel');
+                        } else {
+                            heroBtn.textContent = 'Start Lab ' + state.firstLiveLab.nn;
+                            heroBtn.href = state.firstLiveLab.html_url;
+                            heroBtn.setAttribute('target', '_blank');
+                            heroBtn.setAttribute('rel', 'noopener');
+                        }
+                    }
+
+                    // 3. Hero Status Line
+                    var heroStatus = document.getElementById('hero-status-line');
+                    if (heroStatus) {
+                        var heroSpan = heroStatus.querySelector('span') || heroStatus;
+                        if (state.status === 'unavailable') {
+                            heroSpan.textContent = "HEAD@{0}: couldn't check labs";
+                        } else {
+                            heroSpan.textContent = 'HEAD@{0}: ' + state.liveCount + ' of 12 labs in action';
+                        }
+                    }
+
+                    // 4. Slots 01-12
+                    LABS.forEach(function (labConfig) {
+                        var cardEl = document.getElementById('c-' + labConfig.nn);
+                        if (!cardEl) return;
+                        var repoData = state.labs[labConfig.nn];
+                        if (state.status === 'unavailable') {
+                            renderUnavailableCard(cardEl, labConfig);
+                        } else if (repoData) {
+                            var wasNotLive = !cardEl.classList.contains('live');
+                            renderLiveCard(cardEl, labConfig, repoData);
+                            if (wasNotLive) {
+                                triggerUnlockAnimation(cardEl, labConfig.nn);
+                            }
+                        } else {
+                            renderLockedCard(cardEl, labConfig);
+                        }
+                    });
+
+                    // 5. Extra Labs
+                    var labsGrid = document.getElementById('labs-grid');
+                    if (labsGrid) {
+                        var existingExtras = labsGrid.querySelectorAll('.lab-card-extra');
+                        existingExtras.forEach(function (el) { el.remove(); });
+                        if (state.extraLabs && state.extraLabs.length > 0) {
+                            state.extraLabs.forEach(function (extraRepo) {
+                                var extraCard = document.createElement('div');
+                                extraCard.className = 'lab-card live lab-card-extra';
+                                extraCard.id = 'c-' + extraRepo.nn;
+                                extraCard.setAttribute('data-nn', extraRepo.nn);
+                                extraCard.setAttribute('data-track', 'all');
+                                extraCard.tabIndex = 0;
+                                renderLiveCard(extraCard, null, extraRepo);
+                                labsGrid.appendChild(extraCard);
+                                triggerUnlockAnimation(extraCard, extraRepo.nn);
+                            });
+                        }
+                    }
+
+                    // Expose single source of truth globally for inspection / terminal commands
+                    window.reflogLabsState = state;
+                }
+
+                function buildStateFromRepos(repos, status, syncedTime) {
+                    var state = {
+                        status: status || 'success',
+                        liveCount: 0,
+                        totalCount: 12,
+                        syncedAt: syncedTime || formatTimeHHMM(new Date()),
+                        labs: {},
+                        extraLabs: [],
+                        firstLiveLab: null
+                    };
+
+                    if (status === 'unavailable' || !repos) {
+                        state.status = 'unavailable';
+                        return state;
+                    }
+
+                    var matching = [];
+                    repos.forEach(function (repo) {
+                        if (repo.archived || repo.private) return;
+                        var m = repo.name.match(/^lab-(\d{2})-(.+)$/);
+                        if (!m) return;
+                        matching.push({
+                            repo: repo,
+                            nn: m[1],
+                            slug: m[2]
+                        });
+                    });
+
+                    matching.forEach(function (item) {
+                        var nn = item.nn;
+                        var slug = item.slug;
+                        var repo = item.repo;
+                        var title = slugToTitleCase(slug);
+
+                        var labItem = {
+                            nn: nn,
+                            slug: slug,
+                            title: title,
+                            name: repo.name,
+                            description: repo.description || 'No description yet.',
+                            html_url: repo.html_url,
+                            language: repo.language || '',
+                            pushed_at: repo.pushed_at,
+                            topics: Array.isArray(repo.topics) ? repo.topics.slice(0, 3) : [],
+                            stargazers_count: repo.stargazers_count || 0,
+                            created_at: repo.created_at
+                        };
+
+                        var isKnown = LABS.some(function (l) { return l.nn === nn; });
+                        if (isKnown) {
+                            if (!state.labs[nn]) {
+                                state.labs[nn] = labItem;
+                            } else {
+                                console.warn('Duplicate slot ' + nn + ': using oldest of ' + state.labs[nn].name + ' and ' + repo.name);
+                                if (new Date(repo.created_at).getTime() < new Date(state.labs[nn].created_at).getTime()) {
+                                    state.labs[nn] = labItem;
+                                }
+                            }
+                        } else {
+                            state.extraLabs.push(labItem);
+                        }
+                    });
+
+                    var liveNns = Object.keys(state.labs).sort();
+                    state.liveCount = liveNns.length + state.extraLabs.length;
+                    if (liveNns.length > 0) {
+                        state.firstLiveLab = state.labs[liveNns[0]];
+                    } else if (state.extraLabs.length > 0) {
+                        state.firstLiveLab = state.extraLabs[0];
+                    }
+
+                    return state;
+                }
+
+                // Close drawer on Escape
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') {
+                        document.querySelectorAll('.lab-drawer').forEach(function (drawer) {
+                            if (!drawer.hidden) {
+                                drawer.hidden = true;
+                                var btn = drawer.parentElement.querySelector('.btn-learn-drawer');
+                                if (btn) {
+                                    btn.setAttribute('aria-expanded', 'false');
+                                    var ic = btn.querySelector('.learn-icon');
+                                    if (ic) ic.textContent = '+';
+                                }
+                            }
+                        });
+                    }
+                });
+
+                function initLiveLabsEngine() {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var mockParam = urlParams.get('mock');
+
+                    // 1. TESTING HOOK (?mock=...)
+                    if (mockParam !== null) {
+                        if (mockParam === 'offline') {
+                            renderAllFromState(buildStateFromRepos(null, 'unavailable'));
+                        } else if (mockParam === 'none') {
+                            renderAllFromState(buildStateFromRepos([], 'success'));
+                        } else if (mockParam === 'all') {
+                            var mockAllRepos = LABS.map(function (lab) {
+                                var slugMap = {
+                                    '01': 'first-commit', '02': 'branch-out', '03': 'remote-control',
+                                    '04': 'fork-it', '05': 'issue-triage', '06': 'pull-request',
+                                    '07': 'merge-conflict', '08': 'code-review', '09': 'interactive-rebase',
+                                    '10': 'failing-test-first', '11': 'ci-pipeline', '12': 'release-tag'
+                                };
+                                var name = 'lab-' + lab.nn + '-' + (slugMap[lab.nn] || 'exercise');
+                                return {
+                                    name: name,
+                                    description: 'Mock description for lab ' + lab.nn + '.',
+                                    language: 'Shell',
+                                    html_url: 'https://github.com/reflog-labs/' + name,
+                                    pushed_at: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+                                    topics: ['git', 'basics'],
+                                    stargazers_count: 0,
+                                    archived: false,
+                                    private: false,
+                                    created_at: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString()
+                                };
+                            });
+                            renderAllFromState(buildStateFromRepos(mockAllRepos, 'success'));
+                        } else {
+                            var selectedNns = mockParam.split(',').map(function (s) { return s.trim(); });
+                            var slugMap = {
+                                '01': 'first-commit', '02': 'branch-out', '03': 'remote-control',
+                                '04': 'fork-it', '05': 'issue-triage', '06': 'pull-request',
+                                '07': 'merge-conflict', '08': 'code-review', '09': 'interactive-rebase',
+                                '10': 'failing-test-first', '11': 'ci-pipeline', '12': 'release-tag'
+                            };
+                            var mockRepos = selectedNns.map(function (nn) {
+                                var name = 'lab-' + nn + '-' + (slugMap[nn] || 'exercise');
+                                return {
+                                    name: name,
+                                    description: 'Mock description for lab ' + nn + '.',
+                                    language: 'Shell',
+                                    html_url: 'https://github.com/reflog-labs/' + name,
+                                    pushed_at: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+                                    topics: ['git', 'basics'],
+                                    stargazers_count: 0,
+                                    archived: false,
+                                    private: false,
+                                    created_at: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString()
+                                };
+                            });
+                            renderAllFromState(buildStateFromRepos(mockRepos, 'success'));
+                        }
+                        return;
+                    }
+
+                    // 2. SESSIONSTORAGE CACHE (reflog:labs:v1)
+                    var cachedEntry = null;
+                    try {
+                        var rawCache = sessionStorage.getItem(LABS_CACHE_KEY);
+                        if (rawCache) cachedEntry = JSON.parse(rawCache);
+                    } catch (e) {}
+
+                    var now = Date.now();
+                    var isFresh = cachedEntry && cachedEntry.timestamp && (now - cachedEntry.timestamp < 5 * 60 * 1000);
+
+                    if (isFresh && cachedEntry.repos) {
+                        var cachedDate = new Date(cachedEntry.timestamp);
+                        renderAllFromState(buildStateFromRepos(cachedEntry.repos, 'success', formatTimeHHMM(cachedDate)));
+                        return;
+                    }
+
+                    if (cachedEntry && cachedEntry.repos) {
+                        var staleDate = new Date(cachedEntry.timestamp);
+                        renderAllFromState(buildStateFromRepos(cachedEntry.repos, 'success', formatTimeHHMM(staleDate)));
+                    }
+
+                    // 3. FETCH LIVE API (no auth headers, no tokens)
+                    fetch(LABS_API_URL, {
+                        headers: {
+                            'Accept': 'application/vnd.github+json'
+                        }
+                    })
+                    .then(function (res) {
+                        if (!res.ok) {
+                            throw new Error('HTTP ' + res.status);
+                        }
+                        return res.json();
+                    })
+                    .then(function (data) {
+                        if (!Array.isArray(data)) {
+                            throw new Error('Invalid data format');
+                        }
+                        var syncedTimeStr = formatTimeHHMM(new Date());
+                        try {
+                            sessionStorage.setItem(LABS_CACHE_KEY, JSON.stringify({
+                                timestamp: Date.now(),
+                                repos: data
+                            }));
+                        } catch (e) {}
+
+                        var newState = buildStateFromRepos(data, 'success', syncedTimeStr);
+                        renderAllFromState(newState);
+                    })
+                    .catch(function (err) {
+                        console.warn('Labs fetch failed:', err);
+                        if (!cachedEntry || !cachedEntry.repos) {
+                            renderAllFromState(buildStateFromRepos(null, 'unavailable'));
+                        }
+                    });
+                }
+
+                initLiveLabsEngine();
+
                 // Labs Filter
                 var filters = document.querySelectorAll('.filter-chip');
-                var cards = document.querySelectorAll('.lab-card');
                 filters.forEach(function (btn) {
                     btn.addEventListener('click', function () {
                         filters.forEach(function (b) {
@@ -4764,7 +5677,8 @@
                         btn.classList.add('active');
                         btn.setAttribute('aria-selected', 'true');
                         var track = btn.getAttribute('data-track');
-                        cards.forEach(function (card) {
+                        var allCards = document.querySelectorAll('.lab-card');
+                        allCards.forEach(function (card) {
                             if (track === 'all' || card.getAttribute('data-track') === track) {
                                 card.style.display = 'flex';
                             } else {
